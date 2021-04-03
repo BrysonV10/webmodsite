@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <title>WebMod Library | Import Scripts</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="https://cdn.glitch.com/294f1e86-9b72-4b68-b677-5505bcb2f6c5%2Ficon16.png?v=1615929992953">
+    <script src="scripts/secure.js"></script>
+  </head>
+  <body>
+    <h1 id="name">A Random Script</h1>
+    <p id="author">
+      By <i>Lifecube-devs</i> 
+    </p>
+    
+    <button id="modal-open-button" class="pure-button">Download Now!</button><br><br>
+    <button id="source" class="pure-button" onclick="document.getElementById('script-container').style.display = 'block'; document.getElementById('source').style.display = 'none';">
+      View Source
+    </button>
+    <h5>
+      About this Script
+    </h5>
+    <p id="description">
+      when on google.com, it rick rolls you. Every time.
+    </p>
+    <div id="download-modal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="status">Looking For WebMod...</p>
+    <div class="loader" id="loader"></div>
+    <button id="download-btn">Download</button>
+    <h1 id="downloaded" style="display: none">Downloaded</h1>
+  </div>
+</div>
+    <div id="script-container" style="display: none;">
+      <textarea id="webmod-interact-script" style="border: 2px solid #000000; resize: none; height: 100%; width: 100%" readonly>
+if(window.location.hostname == 'google.com') {
+  window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+}
+</textarea>
+    </div>
+    
+    <style>
+      textarea {
+        border: 2px solid #000000; resize: none; width: 100% rows=20; 
+      }
+    </style>
+  <script>
+var downloadNow = new URLSearchParams(window.location.search);
+var modal = document.getElementById("download-modal");
+var btn = document.getElementById("modal-open-button");
+var span = document.getElementsByClassName("close")[0];
+window.addEventListener("load", () => {
+  if(downloadNow.get('download') == "true"){
+    modal.style.display = "block";
+  }
+})
+    
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    
+  //WebMod
+    var webmod_downloading = false
+    var webmod = false;
+    webmod_downloading = true;
+      btn.addEventListener('mousedown', function() {
+        document.getElementById('loader').style = 'display: block'
+        document.getElementById('download-btn').style = 'display: none'
+        if(webmod == true) {
+          console.log('Downloaded Script')
+          
+          document.getElementById('status').innerHTML = 'WebMod Detected!'
+          document.getElementById('loader').style = 'display: none'
+          document.getElementById('download-btn').style = 'display: block'
+        }
+      })
+    
+  </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <title>WebMod | Developer Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
+    <script src="scripts/secure.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  </head>
+  <body>
+    <form class="pure-form pure-form-stacked animate_animated" onsubmit="login(e)">
+      <center>
+      <h1>
+        Become a WebMod Developer
+      </h1>
+      <label for="email">Email</label> 
+      <input type="text" class="" id="email" required="" autocomplete="off"> 
+      <label for="password">Password</label>
+      <input type="password" class="" id="password" required="" autocomplete="off"> 
+      <label for="username">Password</label>
+      <input type="text" class="" id="username" required="" autocomplete="off"> 
+      <button class="pure-button">
+        Submit
+      </button>
+        <p id="error">
+        </p>
+        <p>
+          Already Have an Account? <a href="/auth/login.html">Sign In!</a>
+        </p>
+        <p>
+         <a href="/"><-- Return Home</a> 
+        </p>
+        </center>
+    </form>
+    <style>
+      form {
+        text-align: center;
+        margin: auto;
+        max-width: 600px;
+        padding-bottom: 15px;
+        animation-name: bounceInDown;
+        animation-duration: 0.5s;
+        border-radius: 7px;
+      }
+      input {
+        display: inline-block;
+        margin: 0 auto;
+      }
+      body {
+        background-image: linear-gradient(90deg, #FD2929, #DAAB01 );
+      }
+      h1 {
+        color: black;
+        font-family: 'Open Sans', sans-serif;
+      }
+      input:hover {
+        animation-name: inputAni;
+        animation-duration: 10s;
+      }
+      input:click {
+        animation-name: inputAni;
+        animation-duration: 15s;
+      }
+      @keyframes inputAni {
+        from {
+          border-bottom: 0px solid black;
+        }
+        5% {
+          border-bottom: 5px solid red;
+        }
+        to {
+          border-bottom: 5px solid red;
+        }
+      }
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js" defer></script>
+    <script src="/scripts/firebaseinit.js" defer></script>
+    <script src="/scripts/login.js" defer></script>
+  </body>
+</html>
