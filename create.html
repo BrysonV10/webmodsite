@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>Create | WebMod</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://cdn.glitch.com/294f1e86-9b72-4b68-b677-5505bcb2f6c5%2Ficon16.png?v=1615929992953">
+ 
+    <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
+  </head>
+  <style>
+    #javascript {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80%;
+    }
+    .settings {
+      position: fixed;
+      top: 30%;
+      height: 100px;
+      width: 150px;
+      left: 45%;
+      display: none
+    }
+  </style>
+  <body>
+    <div class="create-top-bar">
+      <div>
+        <h1>Create Script</h1>
+        <p>
+          Powered by <a href="https://kazzkiq.github.io/CodeFlask/">CodeFlask</a>
+        </p>
+      </div>
+      <hr>
+      <div>
+        <p><button id="save">Save</button>
+        <button id="finish">Post</button>  Max Length: 5,000,000 Charactors</p>
+      </div>
+    </div>
+    <br>
+    <div id="javascript" maxlength="500"></div>
+    <div id="settings" class="settings">
+      <center>
+        <h1>Post Userscript</h1>
+        <br>
+        <input type="text" id="name"><br>
+        <input type="text" id="author">
+        <button onclick="upload()">Submit</button>
+        <button onclick="cancel()">Cancel</button>
+      </center>
+    </div>
+    <script defer>
+      const flask = new CodeFlask('#javascript', {
+      language: 'js'
+    });
+      
+      //Save
+      function save() {
+        if(confirm('Save?')) {
+          localStorage.setItem('code', code.value)
+        }
+      }
+      function restore() {
+        let load = localStorage.getItem('code')
+        if(load)flask.updateCode(load);else flask.updateCode("function(){...}")
+      }
+      restore()
+      function upload() {
+        save()
+        document.getElementById('settings').style.display = 'block'
+        var name = document.getElementById('name')
+        var author = document.getElementById('author')
+        
+        //Firebase Stuff
+      }
+      function cancel() {
+        var name = document.getElementById('name')
+        var author = document.getElementById('author')
+        name.value = ''
+        author.value = ''
+        document.getElementById('settings').style.display = 'none'
+      }
+      document.getElementById("save").addEventListener('mousedown', save)
+      document.getElementById("finish").addEventListener("mousedown", upload)
+    </script>
+  </body>
+</html>
